@@ -360,6 +360,53 @@
 |352| [What is the output of below function calls?](#what-is-the-output-of-below-function-calls)|
 |353| [How to remove all line breaks from a string?](#how-to-remove-all-line-breaks-from-a-string)|
 |354| [What is the difference between reflow and repaint?](#what-is-the-difference-between-reflow-and-repaint)|
+|355| [What happens with negating an array?](#what-happens-with-negating-an-array)|
+|356| [What happens if we add two arrays?](#what-happens-if-we-add-two-arrays)|
+|357| [What is the output of prepend additive operator on falsy values?](#what-is-the-output-of-prepend-additive-operator-on-falsy-values)|
+|358| [How do you create self string using special characters?](#how-do-you-create-self-string-using-special-characters)|
+|358| [How do you remove falsy values from an array?](#how-do-you-remove-falsy-values-from-an-array)|
+|359| [How do you get unique values of an array?](#how-do-you-get-unique-values-of-an-array)|
+|360| [What is destructuring aliases?](#what-is-destructuring-aliases)|
+|361| [How do you map the array values without using map method?](#how-do-you-map-the-array-values-without-using-map-method)|
+|362| [How do you empty an array?](#how-do-you-empty-an-array)|
+|363| [How do you rounding numbers to certain decimals](#how-do-you-rounding-numbers-to-certain-decimals)|
+|364| [What is the easiest way to convert an array to an object?](#what-is-the-easiest-way-to-convert-an-array-to-an-object)|
+|365| [How do you create an array with some data?](#how-do-you-create-an-array-with-some-data)|
+|366| [](#)|
+|367| [](#)|
+|368| [](#)|
+|369| [](#)|
+|370| [](#)|
+|371| [](#)|
+|372| [](#)|
+|373| [](#)|
+|374| [](#)|
+|375| [](#)|
+|376| [](#)|
+|377| [](#)|
+|378| [](#)|
+|379| [](#)|
+|380| [](#)|
+|381| [](#)|
+|382| [](#)|
+|383| [](#)|
+|384| [](#)|
+|385| [](#)|
+|386| [](#)|
+|387| [](#)|
+|388| [](#)|
+|389| [](#)|
+|390| [](#)|
+|391| [](#)|
+|392| [](#)|
+|393| [](#)|
+|394| [](#)|
+|395| [](#)|
+|396| [](#)|
+|397| [](#)|
+|398| [](#)|
+|399| [](#)|
+|400| [](#)|
 
 1. ### What are the possible ways to create objects in JavaScript?
 
@@ -4982,7 +5029,7 @@ function userDetails(username) {
 
      **Output:**
 
-     The output is 44 and NaN. Remember that diameter is a regular function, whereas the value of perimeter is an arrow function. The this keyword of a regular function(i.e, diameter) refers to surrounding scope which is a class(i.e, Shape object). Whereas this keyword of perimeter function refers the surrounding scope which is window object. Since there is no radius property on window object it returns an undefined value and the multiple of number value returns NaN value.
+     The output is 40 and NaN. Remember that diameter is a regular function, whereas the value of perimeter is an arrow function. The this keyword of a regular function(i.e, diameter) refers to surrounding scope which is a class(i.e, Shape object). Whereas this keyword of perimeter function refers the surrounding scope which is window object. Since there is no radius property on window object it returns an undefined value and the multiple of number value returns NaN value.
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -5002,10 +5049,300 @@ function userDetails(username) {
 
       **[⬆ Back to Top](#table-of-contents)**
 
+355. ### What happens with negating an array?
+     Negating an array with `!` character will coerce the array into a boolean. Since Arrays are considered to be truthy So negating it will return `false`.
+     ```javascript
+     console.log(![]); // false
+     ```
+     **[⬆ Back to Top](#table-of-contents)**
+356. ### What happens if we add two arrays?
+     If you add two arrays together, it will convert them both to strings and concatenate them. For example, the result of adding arrays would be as below,
+     ```javascript
+     console.log(['a'] + ['b']);  // "ab"
+     console.log([] + []); // ""
+     console.log(![] + []); // "false", because ![] returns false.
+     ```
+     **[⬆ Back to Top](#table-of-contents)**
 
+357. ### What is the output of prepend additive operator on falsy values?
+     If you prepend additive(+) operator on falsy values(null, undefined, NaN, false, ""), the falsy value converts to a number value zero. Let's display them on browser console as below,
+     ```javascript
+     console.log(+null); // 0
+     console.log(+undefined);// 0
+     console.log(+false); // 0
+     console.log(+NaN); // 0
+     console.log(+""); // 0
+     ```
 
+     **[⬆ Back to Top](#table-of-contents)**
 
+358. ### How do you create self string using special characters?
+     The self string can be formed with the combination of `[]()!+` characters. You need to remember the below conventions to achieve this pattern.
+     1. Since Arrays are truthful values, negating the arrays will produce false: ![] === false
+     2. As per JavaScript coercing rules, the addition of arrays together will toString them: [] + [] === ""
+     3. Prepend an array with + operator will convert an array to false, the negation will make it true and finally converting the result will produce value '1': +(!(+[])) === 1
 
+     By applying the above rules, we can derive below conditions
+     ```javascript
+     ![] + [] === "false"
+     +!+[] === 1
+     ```
+     Now the character pattern would be created as below,
+
+     ```javascript
+           s               e               l               f
+     ^^^^^^^^^^^^^   ^^^^^^^^^^^^^   ^^^^^^^^^^^^^   ^^^^^^^^^^^^^
+
+     (![] + [])[3] + (![] + [])[4] + (![] + [])[2] + (![] + [])[0]
+     ^^^^^^^^^^^^^   ^^^^^^^^^^^^^   ^^^^^^^^^^^^^   ^^^^^^^^^^^^^
+    (![] + [])[+!+[]+!+[]+!+[]] +
+    (![] + [])[+!+[]+!+[]+!+[]+!+[]] +
+    (![] + [])[+!+[]+!+[]] +
+    (![] + [])[+[]]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    (![]+[])[+!+[]+!+[]+!+[]]+(![]+[])[+!+[]+!+[]+!+[]+!+[]]+(![]+[])[+!+[]+!+[]]+(![]+[])[+[]]
+
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+358. ### How do you remove falsy values from an array?
+     You can apply filter method on array by passing Boolean as parameter. This way it removes all falsy values(0, undefined, null, false and "") from the array.
+     ```javascript
+     const myArray = [false, null, 1,5, undefined]
+     myArray.filter(Boolean); // [1, 5] // is same as myArray.filter(x => x);
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+359. ### How do you get unique values of an array?
+     You can get unique values of an array with the combination of `Set` and rest expression/spread(...) syntax.
+     ```javascript
+     console.log([...new Set([1, 2, 4, 4, 3])]); // [1, 2, 4, 3]
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+360. ### What is destructuring aliases?
+     Sometimes you would like to have destructured variable with a different name than the property name. In that case, you'll use a `: newName` to specify a name for the variable. This process is called destructuring aliases.
+     ```javascript
+     const obj = { x: 1 };
+     // Grabs obj.x as as { otherName }
+     const { x: otherName } = obj;
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+361. ### How do you map the array values without using map method?
+     You can map the array values without using `map` method by just using `from` method of Array. Let's map city names from Countries array,
+     ```javascrippt
+     const countries = [
+         { name: 'India', capital: 'Delhi' },
+         { name: 'US', capital: 'Washington' },
+         { name: 'Russia', capital: 'Moscow' },
+         { name: 'Singapore', capital: 'Singapore' },
+         { name: 'China', capital: 'Beijing' },
+         { name: 'France', capital: 'Paris' },
+     ];
+
+     const cityNames = Array.from(countries, ({ capital}) => capital);
+     console.log(cityNames); // ['Delhi, 'Washington', 'Moscow', 'Singapore', 'Beijing', 'Paris']
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+362. ### How do you empty an array?
+     You can empty an array quicky by setting the array length to zero.
+     ```javascript
+     let cities = ['Singapore', 'Delhi', 'London'];
+     cities.length = 0; // cities becomes []
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+363. ### How do you rounding numbers to certain decimals?
+     You can rounding numbers to a certain number of decimals using `toFixed` method from native javascript.
+     ```javascript
+     let pie = 3.141592653;
+     pie = pie.toFixed(3); // 3.142
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+364. ### What is the easiest way to convert an array to an object?
+     You can convert an array to an object with the same data using spread(...) operator.
+     ```javascript
+     var fruits = ["banana", "apple", "orange", "watermelon"];
+     var fruitsObject = {...fruits};
+     console.log(fruitsObject); // {0: "banana", 1: "apple", 2: "orange", 3: "watermelon"}
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+365. ### How do you create an array with some data?
+     You can create an array with some data or an array with the same values using `fill` method.
+     ```javascript
+     var newArray = new Array(5).fill("0");
+     console.log(newArray); // ["0", "0", "0", "0", "0"]
+     ```
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+366. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+367. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+368. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+369. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+370. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+371. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+372. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+373. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+374. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+375. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+376. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+377. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+378. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+379. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+380. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+381. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+382. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+383. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+384. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+385. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+386. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+387. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+388. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+389. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+390. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+391. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+392. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+393. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+394. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+395. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+396. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+397. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+398. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+399. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+400. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+401. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+402. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+403. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
+
+404. ### ?
+
+     **[⬆ Back to Top](#table-of-contents)**
 
 
 
