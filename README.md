@@ -372,18 +372,18 @@
 |363| [How do you rounding numbers to certain decimals](#how-do-you-rounding-numbers-to-certain-decimals)|
 |364| [What is the easiest way to convert an array to an object?](#what-is-the-easiest-way-to-convert-an-array-to-an-object)|
 |365| [How do you create an array with some data?](#how-do-you-create-an-array-with-some-data)|
-|366| [](#)|
-|367| [](#)|
-|368| [](#)|
-|369| [](#)|
-|370| [](#)|
-|371| [](#)|
-|372| [](#)|
-|373| [](#)|
-|374| [](#)|
-|375| [](#)|
-|376| [](#)|
-|377| [](#)|
+|366| [What are the placeholders from console object?](#what-are-the-placeholders-from-console-object)|
+|367| [Is it possible to add CSS to console messages?](#is-it-possible-to-add-css-to-console-messages)|
+|368| [What is the purpose of dir method of console object?](#what-is-the-purpose-of-dir-method-of-console-object)|
+|369| [Is it possible to debug HTML elements in console?](#is-it-possible-to-debug-html-elements-in-console)|
+|370| [How do you display data in a tabular format using console object?](#how-do-you-display-data-in-a-tabular-format-using-console-object)|
+|371| [How do you verify that an argument is a Number or not?](#how-do-you-verify-that-an-argument-is-a-number-or-not)|
+|372| [How do you create copy to clipboard button?](#how-do-you-create-copy-to-clipboard-button)|
+|373| [What is the shortcut to get timestamp?](#what-is-the-shortcut-to-get-timestamp)|
+|374| [How do you flattening multi dimensional arrays?](#how-do-you-flattening-multi-dimensional-arrays)|
+|375| [What is the easiest multi condition checking?](#what-is-the-easiest-multi-condition-checking)|
+|376| [How do you capture browser back button?](#how-do-you-capture-browser-back-button)|
+|377| [How do you disable right click in the web page?](#how-do-you-disable-right-click-in-the-web-page)|
 |378| [](#)|
 |379| [](#)|
 |380| [](#)|
@@ -4473,7 +4473,7 @@ function userDetails(username) {
      var skill2 = 'JavaScript';
      var experience2 = 5;
 
-     function myInfoTag(strings, userExp, experienceExp) {
+     function myInfoTag(strings, userExp, experienceExp, skillExp) {
        var str0 = strings[0]; // "Mr/Ms. "
        var str1 = strings[1]; // " is a/an "
        var str2 = strings[2]; // "in"
@@ -4493,8 +4493,8 @@ function userDetails(username) {
      var output1 = myInfoTag`Mr/Ms. ${ user1 } is a/an ${ experience1 } in ${skill1}`;
      var output2 = myInfoTag`Mr/Ms. ${ user2 } is a/an ${ experience2 } in ${skill2}`;
 
-     console.log(output);// Mr/Ms. John is a/an expert developer in JavaScript
-     console.log(output);// Mr/Ms. Kane is a/an junior developer in JavaScript
+     console.log(output1);// Mr/Ms. John is a/an expert developer in JavaScript
+     console.log(output2);// Mr/Ms. Kane is a/an junior developer in JavaScript
      ```
 
      **[⬆ Back to Top](#table-of-contents)**
@@ -5188,51 +5188,150 @@ function userDetails(username) {
 
      **[⬆ Back to Top](#table-of-contents)**
 
-366. ### ?
+366. ### What are the placeholders from console object?
+     Below are the list of placeholders available from console object,
+     1. %o — It takes an object,
+     2. %s — It takes a string,
+     3. %d — It is used for a decimal or integer
+     These placeholders can be represented in the console.log as below
+     ```javascript
+     const user = { "name":"John", "id": 1, "city": "Delhi"};
+     console.log("Hello %s, your details %o are available in the object form", "John", user); // Hello John, your details {name: "John", id: 1, city: "Delhi"} are available in object
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-367. ### ?
+367. ### Is it possible to add CSS to console messages?
+     Yes, you can apply CSS styles to console messages similar to html text on the web page.
+     ```javascript
+     console.log('%c The text has blue color, with large font and red background', 'color: blue; font-size: x-large; background: red');
+     ```
+     The text will be displayed as below,
+
+     ![Screenshot](images/console-CSS.png)
+     **Note:** All CSS styles can be applied to console messages.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-368. ### ?
+368. ### What is the purpose of dir method of console object?
+     The `console.dir()` is used to display an interactive list of the properties of the specified JavaScript object as JSON.
+     ```javascript
+     const user = { "name":"John", "id": 1, "city": "Delhi"};
+     console.dir(user);
+     ```
+     The user object displayed in JSON representation
+     ![Screenshot](images/console-css.png)
 
      **[⬆ Back to Top](#table-of-contents)**
 
-369. ### ?
+369. ### Is it possible to debug HTML elements in console?
+     Yes, it is possible to get and debug HTML elements in the console just like inspecting elements.
+     ```javascript
+     const element = document.getElementsByTagName("body")[0];
+     console.log(element);
+     ```
+     It prints the HTML element in the console
+     ![Screenshot](images/console-html.png)
 
      **[⬆ Back to Top](#table-of-contents)**
 
-370. ### ?
+370. ### How do you display data in a tabular format using console object?
+     The `console.table()` is used to display data in the console in a tabular format to visualize complex arrays or objects.
+     ```javascript
+     const users = [{ "name":"John", "id": 1, "city": "Delhi"},
+                   { "name":"Max", "id": 2, "city": "London"},
+                   { "name":"Rod", "id": 3, "city": "Paris"}];
+     console.table(users);
+     ```
+     The data visualized in a table format
+     ![Screenshot](images/console-table.png)
+     **Not:** Remember that `console.table()` is not supported in IE.
 
      **[⬆ Back to Top](#table-of-contents)**
 
-371. ### ?
+371. ### How do you verify that an argument is a Number or not?
+     The combination of IsNaN and isFinite methods are used to confirm whether an argument is a number or not.
+     ```javascript
+     function isNumber(n){
+         return !isNaN(parseFloat(n)) && isFinite(n);
+     }
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-372. ### ?
+372. ### How do you create copy to clipboard button?
+     You need to select the content(using .select() method) of input element and execute the copy command with execCommand (i.e, execCommand('copy')). You can also execute another system commands like cut and paste.
+     ```javascript
+     document.querySelector("#copy-button").onclick = function() {
+       // Select the content
+       document.querySelector("#copy-input").select();
+       // Copy to the clipboard
+       document.execCommand('copy');
+     };
+
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-373. ### ?
+373. ### What is the shortcut to get timestamp?
+     You can use `new Date().getTime()` to get the current timestamp. There is an alternative shortcut to get the value.
+     ```javascript
+     console.log(+new Date());
+     console.log(Date.now());
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-374. ### ?
+374. ### How do you flattening multi dimensional arrays?
+     Flattening bi-dimensional arrays is trivial with Spread operator.
+     ```javascript
+     const biDimensionalArr = [11, [22, 33], [44, 55], [66, 77], 88, 99];
+     const flattenArr = [].concat(...biDimensionalArr); // [11, 22, 33, 44, 55, 66, 77, 88, 99]
+     ```
+     But you can make it work with multi-dimensional arrays by recursive calls,
+
+     ```javascript
+     function flattenMultiArray(arr) {
+         const flattened = [].concat(...arr);
+         return flattened.some(item => Array.isArray(item)) ? flattenMultiArray(flattened) : flattened;
+      }
+     const multiDimensionalArr = [11, [22, 33], [44, [55, 66, [77, [88]], 99]]];
+     const flatArr = flattenMultiArray(multiDimensionalArr); // [11, 22, 33, 44, 55, 66, 77, 88, 99]
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-375. ### ?
+375. ### What is the easiest multi condition checking?
+
+     You can use `indexOf` to compare input with multiple values instead of checking each value as one condition.
+     ```javascript
+     // Verbose approach
+     if (input === 'first' || input === 1 || input === 'second' || input === 2) {
+       someFunction();
+     }
+     // Shortcut
+     if (['first', 1, 'second', 2].indexOf(input) !== -1) {
+       someFunction();
+     }
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-376. ### ?
+376. ### How do you capture browser back button?
+     The `window.onbeforeunload` method is used to capture browser back button event. This is helpful to warn user about loosing the current data.
+     ```javascript
+     window.onbeforeunload = function() {
+     	alert("You work will be lost");
+     };
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
-377. ### ?
+377. ### How do you disable right click in the web page?
+     The right click on the page can be disabled by returning false from `oncontextmenu` attribute on body element.
+     ```html
+     <body oncontextmenu="return false;">
+     ```
 
      **[⬆ Back to Top](#table-of-contents)**
 
