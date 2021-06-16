@@ -9,12 +9,18 @@ Go to [Coding Exercise](#coding-exercise) for coding specific questions
 You can download the PDF and Epub version of this repository from the latest run on the [actions tab](https://github.com/sudheerj/JavaScript-Interview-Questions/actions).
 
 ---
-
-## Disclaimer
-
-The questions provided in this repository are the summary of frequently asked questions across numerous companies. We cannot guarantee that these questions will actually be asked during your interview process, nor should you focus on memorizing all of them. The primary purpose is for you to get a sense of what some companies might ask — do not get discouraged if you don't know the answer to all of them ⁠— that is ok!
-
-Good luck with your interview 😊
+<p align="center">
+  <a href=https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=javascript-interview-questions>
+    <img src=https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=height:70/https://www.filepicker.io/api/file/AKYtjj5SSGyJuyZrkAB2 alt="ZTM Logo">
+  </a>
+  <p align="center">
+    <ol>
+    <li>Take this <a href=https://links.zerotomastery.io/jsp_sudheer>JavaScript Projects</a> course to go from a JavaScript beginner to confidently building your own projects</li>
+    <li>Take this <a href=https://links.zerotomastery.io/mci_sudheer2>coding interview bootcamp</a> if you’re serious about getting hired and don’t have a CS degree</li>
+    <li>Take this <a href=https://links.zerotomastery.io/ajs_sudheer>Advanced JavaScript Course</a> to learn advanced JS concepts and become a top JS developer</li>
+    </ol>
+  </p>
+</p>
 
 ---
 
@@ -99,7 +105,7 @@ Good luck with your interview 😊
 |75 | [What is eval](#What-is-eval)|
 |76 | [What is the difference between window and document](#what-is-the-difference-between-window-and-document)|
 |77 | [How do you access history in javascript](#how-do-you-access-history-in-javascript)|
-|78 | [What are the javascript data types](#what-are-the-javascript-data-types)|
+|78 | [How do you detect caps lock key turned on or not](#how-do-you-detect-caps-lock-key-turned-on-or-not)|
 |79 | [What is isNaN](#what-is-isnan)|
 |80 | [What are the differences between undeclared and undefined variables](#what-are-the-differences-between-undeclared-and-undefined-variables)|
 |81 | [What are global variables](#what-are-global-variables)|
@@ -311,7 +317,7 @@ Good luck with your interview 😊
 |287| [How to get the value from get parameters](#how-to-get-the-value-from-get-parameters)|
 |288| [How do you print numbers with commas as thousand separators](#how-do-you-print-numbers-with-commas-as-thousand-separators)|
 |289| [What is the difference between java and javascript](#what-is-the-difference-between-java-and-javascript)|
-|290| [Is javascript supports namespace](#is-javascript-supports-namespace)|
+|290| [Does javascript supports namespace](#does-javascript-supports-namespace)|
 |291| [How do you declare namespace](#how-do-you-declare-namespace)|
 |292| [How do you invoke javascript code in an iframe from parent page](#how-do-you-invoke-javascript-code-in-an-iframe-from-parent-page)|
 |293| [How do get the timezone offset from date](#how-do-get-the-timezone-offset-from-date)|
@@ -362,7 +368,7 @@ Good luck with your interview 😊
 |338| [What is the purpose of Error object](#what-is-the-purpose-of-error-object)|
 |339| [What is the purpose of EvalError object](#what-is-the-purpose-of-evalerror-object)|
 |340| [What are the list of cases error thrown from non-strict mode to strict mode](#what-are-the-list-of-cases-error-thrown-from-non-strict-mode-to-strict-mode)|
-|341| [Is all objects have prototypes](#is-all-objects-have-prototypes)|
+|341| [Do all objects have prototypes](#do-all-objects-have-prototypes)|
 |342| [What is the difference between a parameter and an argument](#what-is-the-difference-between-a-parameter-and-an-argument)|
 |343| [What is the purpose of some method in arrays](#what-is-the-purpose-of-some-method-in-arrays)|
 |344| [How do you combine two or more arrays](#how-do-you-combine-two-or-more-arrays)|
@@ -548,7 +554,9 @@ Good luck with your interview 😊
 
 2. ### What is a prototype chain
 
-    **Prototype chaining** is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language. The prototype on object instance is available through **Object.getPrototypeOf(object)** or __proto__ property whereas prototype on constructors function is available through object.prototype.
+    **Prototype chaining** is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language. 
+    
+    The prototype on object instance is available through **Object.getPrototypeOf(object)** or **__proto__** property whereas prototype on constructors function is available through **Object.prototype**.
 
     ![Screenshot](images/prototype_chain.png)
 
@@ -572,7 +580,7 @@ Good luck with your interview 😊
     invite.call(employee2, 'Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
     ```
 
-    **Apply:** Invokes the function and allows you to pass in arguments as an array
+    **Apply:** Invokes the function with a given `this` value and allows you to pass in arguments as an array
 
     ```javascript
     var employee1 = {firstName: 'John', lastName: 'Rodson'};
@@ -586,7 +594,7 @@ Good luck with your interview 😊
     invite.apply(employee2, ['Hello', 'How are you?']); // Hello Jimmy Baily, How are you?
     ```
 
-    **bind:** returns a new function, allowing you to pass in an array and any number of arguments
+    **bind:** returns a new function, allowing you to pass any number of arguments
 
     ```javascript
     var employee1 = {firstName: 'John', lastName: 'Rodson'};
@@ -602,20 +610,23 @@ Good luck with your interview 😊
     inviteEmployee2('Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
     ```
 
-    Call and apply are pretty interchangeable. Both execute the current function immediately. You need to decide whether it’s easier to send in an array or a comma separated list of arguments. You can remember by treating Call is for comma (separated list) and Apply is for Array. Whereas Bind creates a new function that will have `this` set to the first parameter passed to bind().
+    Call and apply are pretty interchangeable. Both execute the current function immediately. You need to decide whether it’s easier to send in an array or a comma separated list of arguments. You can remember by treating Call is for **comma** (separated list) and Apply is for **Array**. 
+    
+    Whereas Bind creates a new function that will have `this` set to the first parameter passed to bind().
 
     **[⬆ Back to Top](#table-of-contents)**
 
 4. ### What is JSON and its common operations
 
     **JSON** is a text-based data format following JavaScript object syntax, which was popularized by `Douglas Crockford`. It is useful when you want to transmit data across a network and it is basically just a text file with an extension of .json, and a MIME type of application/json
+    
     **Parsing:** Converting a string to a native object
 
     ```javascript
     JSON.parse(text)
     ```
 
-    Stringification: **converting a native object to a string so it can be transmitted across the network
+    **Stringification:** converting a native object to a string so it can be transmitted across the network
 
     ```javascript
     JSON.stringify(object)
@@ -625,7 +636,9 @@ Good luck with your interview 😊
 
 5. ### What is the purpose of the array slice method
 
-    The **slice()** method returns the selected elements in an array as a new array object. It selects the elements starting at the given start argument, and ends at the given optional end argument without including the last element. If you omit the second argument then it selects till the end. Some of the examples of this method are,
+    The **slice()** method returns the selected elements in an array as a new array object. It selects the elements starting at the given start argument, and ends at the given optional end argument without including the last element. If you omit the second argument then it selects till the end.
+    
+    Some of the examples of this method are,
 
     ```javascript
     let arrayIntegers = [1, 2, 3, 4, 5];
@@ -640,7 +653,9 @@ Good luck with your interview 😊
 
 6. ### What is the purpose of the array splice method
 
-    The **splice()** method is used either adds/removes items to/from an array, and then returns the removed item. The first argument specifies the array position for insertion or deletion whereas the option second argument indicates the number of elements to be deleted. Each additional argument is added to the array. Some of the examples of this method are,
+    The **splice()** method is used either adds/removes items to/from an array, and then returns the removed item. The first argument specifies the array position for insertion or deletion whereas the optional second argument indicates the number of elements to be deleted. Each additional argument is added to the array. 
+    
+    Some of the examples of this method are,
 
     ```javascript
     let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];
@@ -742,19 +757,21 @@ Good luck with your interview 😊
 
 13. ### What is a higher order function
 
-    Higher-order function is a function that accepts another function as an argument or returns a function as a return value.
+    Higher-order function is a function that accepts another function as an argument or returns a function as a return value or both.
 
     ```javascript
-    const firstOrderFunc = () => console.log ('Hello I am a First order function');
-    const higherOrder = ReturnFirstOrderFunc => ReturnFirstOrderFunc ();
-    higherOrder (firstOrderFunc);
+    const firstOrderFunc = () => console.log ('Hello, I am a First order function');
+    const higherOrder = ReturnFirstOrderFunc => ReturnFirstOrderFunc();
+    higherOrder(firstOrderFunc);
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
 14. ### What is a unary function
 
-    Unary function (i.e. monadic) is a function that accepts exactly one argument. Let us take an example of unary function. It stands for a single argument accepted by a function.
+    Unary function (i.e. monadic) is a function that accepts exactly one argument. It stands for a single argument accepted by a function.
+    
+    Let us take an example of unary function,
 
     ```javascript
     const unaryFunction = a => console.log (a + 10); // Add 10 to the given argument and display the value
@@ -764,47 +781,56 @@ Good luck with your interview 😊
 
 15. ### What is the currying function
 
-    Currying is the process of taking a function with multiple arguments and turning it into a sequence of functions each with only a single argument. Currying is named after a mathematician Haskell Curry. By applying currying, a n-ary function turns it into a unary function. Let's take an example of n-ary function and how it turns into a currying function
+    Currying is the process of taking a function with multiple arguments and turning it into a sequence of functions each with only a single argument. Currying is named after a mathematician **Haskell Curry**. By applying currying, a n-ary function turns it into a unary function. 
+    
+    Let's take an example of n-ary function and how it turns into a currying function,
 
     ```javascript
     const multiArgFunction = (a, b, c) => a + b + c;
+    console.log(multiArgFunction(1,2,3));// 6
+    
     const curryUnaryFunction = a => b => c => a + b + c;
     curryUnaryFunction (1); // returns a function: b => c =>  1 + b + c
     curryUnaryFunction (1) (2); // returns a function: c => 3 + c
     curryUnaryFunction (1) (2) (3); // returns the number 6
     ```
 
-    Curried functions are great to improve code reusability and functional composition.
+    Curried functions are great to improve **code reusability** and **functional composition**.
 
     **[⬆ Back to Top](#table-of-contents)**
 
 16. ### What is a pure function
 
-    A **Pure function** is a function where the return value is only determined by its arguments without any side effects. i.e, If you call a function with the same arguments 'n' number of times and 'n' number of places in the application then it will always return the same value. Let's take an example to see the difference between pure and impure functions,
+    A **Pure function** is a function where the return value is only determined by its arguments without any side effects. i.e, If you call a function with the same arguments 'n' number of times and 'n' number of places in the application then it will always return the same value.
+    
+    Let's take an example to see the difference between pure and impure functions,
 
     ```javascript
     //Impure
     let numberArray = [];
-    const impureAddNumber = number => numberArray.push (number);
+    const impureAddNumber = number => numberArray.push(number);
     //Pure
     const pureAddNumber = number => argNumberArray =>
-      argNumberArray.concat ([number]);
+      argNumberArray.concat([number]);
 
     //Display the results
-    console.log (impureAddNumber (6)); // returns 1
+    console.log (impureAddNumber(6)); // returns 1
     console.log (numberArray); // returns [6]
-    console.log (pureAddNumber (7) (numberArray)); // returns [6, 7]
+    console.log (pureAddNumber(7) (numberArray)); // returns [6, 7]
     console.log (numberArray); // returns [6]
     ```
 
-    As per above code snippets, Push function is impure itself by altering the array and returning an push number index which is independent of parameter value. Whereas Concat on the other hand takes the array and concatenates it with the other array producing a whole new array without side effects. Also, the return value is a concatenation of the previous array.
+    As per above code snippets, **Push** function is impure itself by altering the array and returning an push number index which is independent of parameter value. Whereas **Concat** on the other hand takes the array and concatenates it with the other array producing a whole new array without side effects. Also, the return value is a concatenation of the previous array.
+    
     Remember that Pure functions are important as they simplify unit testing without any side effects and no need for dependency injection. They also avoid tight coupling and make it harder to break your application by not having any side effects. These principles are coming together with **Immutability** concept of ES6 by giving preference to **const** over **let** usage.
 
     **[⬆ Back to Top](#table-of-contents)**
 
 17. ### What is the purpose of the let keyword
 
-    The `let` statement declares a **block scope local variable**. Hence the variables defined with let keyword are limited in scope to the block, statement, or expression on which it is used. Whereas variables declared with the var keyword used to define a variable globally, or locally to an entire function regardless of block scope. Let's take an example to demonstrate the usage,
+    The `let` statement declares a **block scope local variable**. Hence the variables defined with let keyword are limited in scope to the block, statement, or expression on which it is used. Whereas variables declared with the `var` keyword used to define a variable globally, or locally to an entire function regardless of block scope.
+    
+    Let's take an example to demonstrate the usage,
 
     ```javascript
     let counter = 30;
@@ -812,7 +838,7 @@ Good luck with your interview 😊
       let counter = 31;
       console.log(counter); // 31
     }
-    console.log(counter); // 30 (because if block variable won't exist here)
+    console.log(counter); // 30 (because the variable in if block won't exist here)
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
@@ -832,21 +858,22 @@ Good luck with your interview 😊
     ```javascript
     function userDetails(username) {
        if(username) {
-         console.log(salary); // undefined(due to hoisting)
-         console.log(age); // error: age is not defined
+         console.log(salary); // undefined due to hoisting
+         console.log(age); // ReferenceError: Cannot access 'age' before initialization
          let age = 30;
          var salary = 10000;
        }
        console.log(salary); //10000 (accessible to due function scope)
        console.log(age); //error: age is not defined(due to block scope)
     }
+    userDetails('John');
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
 19. ### What is the reason to choose the name let as a keyword
 
-    Let is a mathematical statement that was adopted by early programming languages like Scheme and Basic. It has been borrowed from dozens of other languages that use let already as a traditional keyword as close to var as possible.
+    `let` is a mathematical statement that was adopted by early programming languages like **Scheme** and **Basic**. It has been borrowed from dozens of other languages that use `let` already as a traditional keyword as close to `var` as possible.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -887,7 +914,9 @@ Good luck with your interview 😊
 
 21. ### What is the Temporal Dead Zone
 
-    The Temporal Dead Zone is a behavior in JavaScript that occurs when declaring a variable with the let and const keywords, but not with var. In ECMAScript 6, accessing a let or const variable before its declaration (within its scope) causes a ReferenceError. The time span when that happens, between the creation of a variable’s binding and its declaration, is called the temporal dead zone. Let's see this behavior with an example,
+    The Temporal Dead Zone is a behavior in JavaScript that occurs when declaring a variable with the let and const keywords, but not with var. In ECMAScript 6, accessing a `let` or `const` variable before its declaration (within its scope) causes a ReferenceError. The time span when that happens, between the creation of a variable’s binding and its declaration, is called the temporal dead zone.
+    
+    Let's see this behavior with an example,
 
     ```javascript
     function somemethod() {
@@ -1022,9 +1051,11 @@ Good luck with your interview 😊
 27. ### What are closures
 
     A closure is the combination of a function and the lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function’s variables. The closure has three scope chains
+    
     1. Own scope where variables defined between its curly brackets
     2. Outer function’s variables
     3. Global variables
+    
     Let's take an example of closure concept,
 
     ```javascript
@@ -1032,14 +1063,14 @@ Good luck with your interview 😊
       var greetingInfo = function(message){
        console.log(message+' '+name);
       }
-    return greetingInfo();
+    return greetingInfo;
     }
     var myFunction = Welcome('John');
     myFunction('Welcome '); //Output: Welcome John
     myFunction('Hello Mr.'); //output: Hello Mr.John
     ```
 
-    As per the above code, the inner function(greetingInfo) has access to the variables in the outer function scope(Welcome) even after the outer function has returned.
+    As per the above code, the inner function(i.e, greetingInfo) has access to the variables in the outer function scope(i.e, Welcome) even after the outer function has returned.
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1739,14 +1770,29 @@ Good luck with your interview 😊
 
     **[⬆ Back to Top](#table-of-contents)**
 
-78. ### What are the javascript data types
+78. ### How do you detect caps lock key turned on or not
 
-    Below are the list of javascript data types available
-    1. Number
-    2. String
-    3. Boolean
-    4. Object
-    5. Undefined
+    The `mouseEvent getModifierState()` is used to return a boolean value that indicates whether the specified modifier key is activated or not. The modifiers such as CapsLock, ScrollLock and NumLock are activated when they are clicked, and deactivated when they are clicked again.
+    
+    Let's take an input element to detect the CapsLock on/off behavior with an example,
+    
+    ```html
+        <input type="password" onmousedown="enterInput(event)">
+          
+        <p id="feedback"></p>
+          
+        <script>
+        function enterInput(e) {
+          var flag = e.getModifierState("CapsLock");
+          if(flag) {
+              document.getElementById("feedback").innerHTML = "CapsLock activated";
+              
+          } else {
+              document.getElementById("feedback").innerHTML = "CapsLock not activated";
+          }
+        }
+        </script>
+    ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -1836,11 +1882,11 @@ Good luck with your interview 😊
 
 88. ### How do you submit a form using JavaScript
 
-    You can submit a form using JavaScript use document.form[0].submit(). All the form input's information is submitted using onsubmit event handler
+    You can submit a form using `document.forms[0].submit()`. All the form input's information is submitted using onsubmit event handler
 
     ```javascript
     function submit() {
-        document.form[0].submit();
+        document.forms[0].submit();
     }
     ```
 
@@ -2864,7 +2910,7 @@ Good luck with your interview 😊
      1. **Using ClassName property:** It is easy to modify element class using className property
 
      ```javascript
-      document.getElementById("title").style.className = "custom-title";
+      document.getElementById("title").className = "custom-title";
       ```
 
      **[⬆ Back to Top](#table-of-contents)**
@@ -3876,13 +3922,15 @@ Good luck with your interview 😊
 
 223. ### What are primitive data types
 
-     A primitive data type is data that has a primitive value (which has no properties or methods). There are 5 types of primitive data types.
+     A primitive data type is data that has a primitive value (which has no properties or methods). There are 7 types of primitive data types.
      
      1. string
      2. number
      3. boolean
      4. null
      5. undefined
+     6. bigint
+     7. symbol
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -4865,7 +4913,7 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-290. ### Is javascript supports namespace
+290. ### Does JavaScript supports namespace
 
      JavaScript doesn’t support namespace by default. So if you create any element(function, method, object, variable) then it becomes global and pollutes the global namespace. Let's take an example of defining two functions without any namespace,
 
@@ -5114,7 +5162,10 @@ Good luck with your interview 😊
      ```
 
      The output of the above for loops is 4 4 4 4 and 0 1 2 3
-     **Explanation:** Due to the event queue/loop of javascript, the `setTimeout` callback function is called after the loop has been executed. Since the variable i is declared with the `var` keyword it became a global variable and the value was equal to 4 using iteration when the time setTimeout function is invoked. Hence, the output of the first loop is `4 4 4 4`. Whereas in the second loop, the variable i is declared as the `let` keyword it becomes a block scoped variable and it holds a new value(0, 1 ,2 3) for each iteration. Hence, the output of the first loop is `0 1 2 3`.
+     
+     **Explanation:** Due to the event queue/loop of javascript, the `setTimeout` callback function is called after the loop has been executed. Since the variable i is declared with the `var` keyword it became a global variable and the value was equal to 4 using iteration when the time `setTimeout` function is invoked. Hence, the output of the first loop is `4 4 4 4`. 
+     
+     Whereas in the second loop, the variable i is declared as the `let` keyword it becomes a block scoped variable and it holds a new value(0, 1 ,2 3) for each iteration. Hence, the output of the first loop is `0 1 2 3`.
 
      **[⬆ Back to Top](#table-of-contents)**
 
@@ -5733,7 +5784,7 @@ Good luck with your interview 😊
 
      **[⬆ Back to Top](#table-of-contents)**
 
-341. ### Is all objects have prototypes
+341. ### Do all objects have prototypes
 
      No. All objects have prototypes except for the base object which is created by the user, or an object that is created using the new keyword.
 
@@ -7805,7 +7856,7 @@ The + operator is not meant or defined for arrays. So it converts arrays into st
 const numbers = new Set([1, 1, 2, 3, 4]);
 console.log(numbers);
 
-const browser = new Set('Firefox);
+const browser = new Set('Firefox');
 console.log(browser);
 ```
 
@@ -7873,7 +7924,7 @@ But you can use `Array.prototype.findIndex` method to find out the index of NaN 
 let numbers = [1, 2, 3, 4, NaN];
 console.log(numbers.findIndex(Number.isNaN)); // 4
 
-console.log(numbers.includes(Number.isNaN)); // true
+console.log(numbers.includes(NaN)); // true
 ```
 
 </p>
@@ -7904,7 +7955,7 @@ When using rest parameters, trailing commas are not allowed and will throw a Syn
 If you remove the trailing comma then it displays 1st answer
 
 ```javascript
-let [a, ...b,] = [1, 2, 3, 4, 5];
+let [a, ...b] = [1, 2, 3, 4, 5];
 console.log(a, b); // 1, [2, 3, 4, 5]
 ```
 
@@ -7924,10 +7975,10 @@ async function func() {
 console.log(func());
 ```
 
-- 1: Promise {<resolved>: 10}
+- 1: Promise {\<fulfilled\>: 10}
 - 2: 10
 - 3: SyntaxError
-- 4: Promise {<rejected>: 10}
+- 4: Promise {\<rejected\>: 10}
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -7957,10 +8008,10 @@ async function func() {
 console.log(func());
 ```
 
-- 1: Promise {<resolved>: 10}
+- 1: Promise {\<fulfilled\>: 10}
 - 2: 10
 - 3: SyntaxError
-- 4: Promise {<resolved>: undefined}
+- 4: Promise {\<resolved\>: undefined}
 
 <details><summary><b>Answer</b></summary>
 <p>
@@ -8973,3 +9024,49 @@ It returns undefined for non-strict mode and returns Error for strict mode. In n
 ---
 
 **[⬆ Back to Top](#table-of-contents)**
+
+#### 56. What is the output of below code?
+
+```javascript
+let count = 10;
+
+(function innerFunc() {
+    if (count === 10) {
+        let count = 11;
+        console.log(count);
+    }
+    console.log(count);
+})();
+```
+
+- 1: 11, 10
+- 2: 11, 11
+- 3: 10, 11
+- 4: 10, 10
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+##### Answer: 1
+11 and 10 is logged to the console. 
+
+The innerFunc is a closure which captures the count variable from the outerscope. i.e, 10. But the conditional has another local variable `count` which overwrites the ourter `count` variable. So the first console.log displays value 11.
+Whereas the second console.log logs 10 by capturing the count variable from outerscope.
+ 
+</p>
+
+</details>
+
+---
+
+**[⬆ Back to Top](#table-of-contents)**
+
+---
+
+## Disclaimer
+
+The questions provided in this repository are the summary of frequently asked questions across numerous companies. We cannot guarantee that these questions will actually be asked during your interview process, nor should you focus on memorizing all of them. The primary purpose is for you to get a sense of what some companies might ask — do not get discouraged if you don't know the answer to all of them ⁠— that is ok!
+
+Good luck with your interview 😊
+
+---
