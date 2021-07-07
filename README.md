@@ -1749,7 +1749,7 @@ You can download the PDF and Epub version of this repository from the latest run
     |---- | ---------
     | It is the root level element in any web page  | It is the direct child of the window object. This is also known as Document Object Model(DOM) |
     | By default window object is available implicitly in the page | You can access it via window.document or document.  |
-    | It has methods like alert(), confirm() and properties like document, location | It provides methods like getElementById, getElementByTagName, createElement etc  |
+    | It has methods like alert(), confirm() and properties like document, location | It provides methods like getElementById, getElementsByTagName, createElement etc  |
 
     **[⬆ Back to Top](#table-of-contents)**
 
@@ -2458,11 +2458,12 @@ You can download the PDF and Epub version of this repository from the latest run
 130. ### What are the pros and cons of for loop
 
      The for-loop is a commonly used iteration syntax in javascript. It has both pros and cons
-     ####Pros
+     
+     #### Pros
      1. Works on every environment
      2. You can use break and continue flow control statements
 
-     ####Cons
+     #### Cons
      1. Too verbose
      2. Imperative
      3. You might face one-by-off errors
@@ -2582,7 +2583,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
 138. ### How do you define multiline strings
 
-     You can define multiline string literals using the '\' character followed by line terminator.
+     You can define multiline string literals using the '\\' character followed by line terminator.
 
      ```javascript
      var str = "This is a \
@@ -2590,7 +2591,7 @@ You can download the PDF and Epub version of this repository from the latest run
      sentence!";
      ```
 
-     But if you have a space after the '\' character, the code will look exactly the same, but it will raise a SyntaxError.
+     But if you have a space after the '\\' character, the code will look exactly the same, but it will raise a SyntaxError.
 
      **[⬆ Back to Top](#table-of-contents)**
 
